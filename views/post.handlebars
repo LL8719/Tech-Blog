@@ -1,0 +1,19 @@
+<div class="post-container">
+  <h2>{{title}}</h2>
+  <p class="post-meta">By {{User.username}} on {{date_created}}</p>
+  <p>{{body}}</p>
+</div>
+
+<div class="comment-container">
+  {{#if comments.length}}
+    <h3>Comments:</h3>
+    {{#each comments}}
+      <div class="comment">
+        <p class="comment-meta">By {{User.username}} on {{date_created}}</p>
+        <p>{{body}}</p>
+      </div>
+    {{/each}}
+  {{else}}
+    <p>No comments yet.</p>
+  {{/if}}
+</div>

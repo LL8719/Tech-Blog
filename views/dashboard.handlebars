@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{user.username}}!</h2>
+  </div>
+</div>
+
+{{#if posts.length}}
+<section>
+  <h2>Your Posts</h2>
+  {{#each posts}}
+    <div class="card my-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">{{ content }}</p>
+        <p class="card-text"><small class="text-muted">{{ date_created }}</small></p>
+        <a href="/post/{{ id }}" class="btn btn-primary">Read more</a>
+      </div>
+    </div>
+  {{/each}}
+</section>
+{{else}}
+<section>
+  <h2>You haven't created any posts yet</h2>
+</section>
+{{/if}}
+
+<button type="submit" class="btn"><a class="link" href="/dashboard/new">+ New Post</a></button>
