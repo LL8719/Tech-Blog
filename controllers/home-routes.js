@@ -22,21 +22,6 @@ router.get('/', async (req, res) => {
 	}
 });
 
-// Login route
-router.get('/login', async (req, res) => {
-	try {
-		if (req.session.logged_in) {
-			res.redirect('/');
-			return;
-		}
-
-		res.render('login');
-	} catch (err) {
-		console.log(err);
-		res.status(500).json(err);
-	}
-});
-
 // Post by id route
 router.get('/post/:id', async (req, res) => {
 	try {
@@ -56,6 +41,21 @@ router.get('/post/:id', async (req, res) => {
 			logged_in: req.session.logged_in,
 		});
 	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+// Login route
+router.get('/login', async (req, res) => {
+	try {
+		if (req.session.logged_in) {
+			res.redirect('/');
+			return;
+		}
+
+		res.render('login');
+	} catch (err) {
+		console.log(err);
 		res.status(500).json(err);
 	}
 });
