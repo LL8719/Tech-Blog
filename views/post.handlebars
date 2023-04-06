@@ -3,6 +3,8 @@
   <h2>{{title}}</h2>
   <p class="post-meta">By {{User.username}} on {{date_created}}</p>
   <p>{{body}}</p>
+  {{!-- Delete button --}}
+   <button id="delete-btn" class="btn btn-sm btn-danger" data-id="{{id}}">DELETE</button>
 </form>
 
 <div class="comment-container">
@@ -19,4 +21,4 @@
   {{/if}}
 </div>
 
-<script src="./js/post.js"></script>
+<script src="/js/deletePost.js"></script>
