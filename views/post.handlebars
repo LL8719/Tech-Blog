@@ -1,8 +1,9 @@
-<div class="post-container">
+
+<form  class="post-container">
   <h2>{{title}}</h2>
   <p class="post-meta">By {{User.username}} on {{date_created}}</p>
   <p>{{body}}</p>
-</div>
+</form>
 
 <div class="comment-container">
   {{#if comments.length}}
@@ -17,3 +18,5 @@
     <p>No comments yet.</p>
   {{/if}}
 </div>
+
+<script src="./js/post.js"></script>
