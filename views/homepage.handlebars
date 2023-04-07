@@ -1,3 +1,6 @@
-{{#each posts as |post|}}
-  {{> post-details post}}
+
+{{#each posts}}
+  {{> post-details this}}
 {{/each}}
+
+<script src="./js/newComment.js"></script>

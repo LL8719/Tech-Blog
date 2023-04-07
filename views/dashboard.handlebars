@@ -14,7 +14,8 @@
         <p class="card-text">{{ content }}</p>
         <p class="card-text"><small class="text-muted">{{ date_created }}</small></p>
         <button><a href="/post/{{ id }}" class="btn btn-primary">view details</a></button>
-        
+        {{> comments post.comments}}
+</div>
         
       </div>
     </div>

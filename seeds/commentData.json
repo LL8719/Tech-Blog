@@ -1,16 +1,16 @@
 [
   {
-    "comment_text": "Comment 1",
+    "comment_text": "Test Comment 1",
     "user_id": "1",
     "post_id": 1
   },
   {
-    "name": "Comment 2",
+    "name": "Test Comment 2",
     "description": "2",
     "needed_funding": 2
   },
   {
-    "name": "Comment 3",
+    "name": "Test Comment 3",
     "description": "2",
     "needed_funding": 2
   }

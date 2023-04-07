@@ -1,0 +1,13 @@
+
+{{#if comments.length}}
+  <div class="comments">
+    {{#each comments}}
+      <div class="comment">
+        <p>{{comment_text}}</p>
+        <p>Posted by {{User.username}} on {{format_date date_created}}</p>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <p>No comments yet.</p>
+{{/if}}
