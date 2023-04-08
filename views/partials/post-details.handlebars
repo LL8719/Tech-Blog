@@ -6,10 +6,8 @@
     <p>Posted by {{ User.username }} on {{format_date date_created}}</p>
   </div>
   <p class="card-body">{{content}}</p>
-</div>
 
-{{> comments comments=comments id=id}}
-
+  {{> comments comments=comments id=id}}
 
 <form id="new-comment" data-postid="{{id}}" method="POST">
 
@@ -21,6 +19,11 @@
   <button  type="submit" class="btn btn-primary " data-id="{{id}}">Submit</button>
   
 </form>
+
+</div>
+
+
+
 
 
 
