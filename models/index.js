@@ -14,17 +14,27 @@ Post.belongsTo(User, {
 	foreignKey: 'user_id',
 	onDelete: 'cascade',
 });
+
 Post.hasMany(Comment, {
 	foreignKey: 'post_id',
 	onDelete: 'cascade',
+	include: [
+		{ model: User, attributes: ['username'] },
+		{
+			model: Comment,
+			include: { model: User, attributes: ['username'] },
+			required: false,
+		},
+	],
 });
+
 Comment.belongsTo(User, {
 	foreignKey: 'user_id',
 	onDelete: 'cascade',
 });
 
 Comment.belongsTo(Post, {
-	foreignKey: 'user_id',
+	foreignKey: 'post_id',
 	onDelete: 'cascade',
 });
 

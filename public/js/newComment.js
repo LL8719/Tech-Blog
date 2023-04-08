@@ -2,23 +2,26 @@ const newCommentHandler = async (event) => {
 	event.preventDefault();
 	console.log('newcomment');
 
-	const commentText = $('#comment').val().trim();
-	console.log('commentText:', commentText);
+	const comment_text = $(event.target)
+		.children('div')
+		.children('textarea')
+		.val();
 
 	const postId = event.target.getAttribute('data-postid');
 	console.log('postId:', postId);
 
-	if (commentText) {
+	if (comment_text) {
 		try {
 			const response = await fetch(`/api/post/${postId}/comments`, {
 				method: 'POST',
 				body: JSON.stringify({
-					commentText,
+					comment_text,
 				}),
 				headers: { 'Content-Type': 'application/json' },
 			});
 			if (response.ok) {
 				console.log('Comment submitted successfully!');
+
 				document.location.replace('/');
 			}
 		} catch (err) {
