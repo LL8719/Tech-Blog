@@ -5,7 +5,7 @@ const newCommentHandler = async (event) => {
 	const commentText = $('#comment').val().trim();
 	console.log('commentText:', commentText);
 
-	const postId = $('#new-comment').data('postid');
+	const postId = event.target.getAttribute('data-postid');
 	console.log('postId:', postId);
 
 	if (commentText) {
