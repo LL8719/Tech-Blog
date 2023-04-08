@@ -8,12 +8,11 @@ const newCommentHandler = async (event) => {
 	const postId = $('#new-comment').data('postid');
 	console.log('postId:', postId);
 
-	if (commentText && postId) {
+	if (commentText) {
 		try {
 			const response = await fetch(`/api/post/${postId}/comments`, {
 				method: 'POST',
 				body: JSON.stringify({
-					postId,
 					commentText,
 				}),
 				headers: { 'Content-Type': 'application/json' },
