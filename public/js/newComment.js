@@ -31,6 +31,6 @@ const newCommentHandler = async (event) => {
 	}
 };
 
-document
-	.querySelector('#new-comment')
-	.addEventListener('submit', newCommentHandler);
+document.querySelectorAll('#new-comment').forEach(function (commentForm) {
+	commentForm.addEventListener('submit', newCommentHandler);
+});

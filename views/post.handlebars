@@ -1,13 +1,26 @@
+{{#if logged_in}}
 <form class="post-container">
+
   <input id="post-title" type="text" name="title" value="{{title}}">
+
   <p class="post-meta">By {{User.username}} on {{date_created}}</p>
+
   <textarea id="post-content" name="body">{{body}}</textarea>
-  {{#if logged_in}}
+
+ 
     <button id="update-btn" class="btn btn-sm btn-primary" data-id="{{id}}">UPDATE</button>
     {{!-- Delete button --}}
     <button id="delete-btn" class="btn btn-sm btn-danger" data-id="{{id}}">DELETE</button>
-  {{/if}}
+ 
 </form>
+{{else}}
+<div class="post-container">
+  <h3>{{title}}</h3>
+<h5> Posted by {{User.username}} on {{date_created}}</h5>
+{{content}}
+{{body}}
+</div>
+ {{/if}}
 
 <div class="comment-container">
   {{#if comments.length}}
