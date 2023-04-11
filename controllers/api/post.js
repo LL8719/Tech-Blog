@@ -4,9 +4,10 @@ const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
 	try {
+		const user = req.session.user_id; // get the user_id from the session
 		const newPost = await Post.create({
 			...req.body,
-			user_id: req.session.user_id,
+			user_id: user, // set the user_id to the user ID obtained from the session
 		});
 
 		res.status(200).json(newPost);
@@ -55,20 +56,20 @@ router.put('/:id', withAuth, async (req, res) => {
 	}
 });
 
-router.post('/:id/comments', withAuth, async (req, res) => {
-	try {
-		if (req.session) {
-			const commentData = await Comment.create({
-				comment_text: req.body.comment_text,
-				post_id: req.params.id,
-				user_id: req.session.user_id,
-			});
-			res.json(commentData);
-		}
-	} catch (err) {
-		console.log(err);
-		res.status(400).json(err);
-	}
-});
+// router.post('/:id/comments', withAuth, async (req, res) => {
+// 	try {
+// 		if (req.session) {
+// 			const commentData = await Comment.create({
+// 				comment_text: req.body.comment_text,
+// 				post_id: req.params.id,
+// 				user_id: req.session.user_id,
+// 			});
+// 			res.json(commentData);
+// 		}
+// 	} catch (err) {
+// 		console.log(err);
+// 		res.status(400).json(err);
+// 	}
+// });
 
 module.exports = router;

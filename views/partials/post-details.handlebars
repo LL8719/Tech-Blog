@@ -1,11 +1,17 @@
-<div class="card">
+<div class="card"  data-postid="{{id}}">
   <div class="card-header">
     <h4><a class="link" href="/post/{{id}}">{{title}}</a></h4>
     <p>Posted by {{ User.username }} on {{format_date date_created}}</p>
   </div>
   <p class="card-body">{{content}}</p>
-
-  {{> comments comments=comments id=id}}
+  <h6>Comments:</h6>
+{{#each Comments}}
+<div>
+  
+  {{comment_text}}
+</div>
+{{/each}}
+</div>
 
 <form id="new-comment" data-postid="{{id}}" method="POST">
 
@@ -17,6 +23,3 @@
   <button  type="submit" class="btn btn-primary " data-id="{{id}}">Submit</button>
   
 </form>
-
-</div>
-

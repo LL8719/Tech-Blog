@@ -13,8 +13,18 @@
         <h3 class="card-title">{{ title }}</h3>
         <p class="card-text">{{ content }}</p>
         <p class="card-text"><small class="text-muted">{{ date_created }}</small></p>
-        <button><a href="/post/{{ id }}" class="btn btn-primary">view details</a></button>
-        {{> comments post.comments}}
+        <button><a href="/post/{{ id }}" class="btn btn-primary">Update/Delete</a></button>
+        
+       <form id="new-comment" data-postid="{{id}}" method="POST">
+
+  <div class="form-group">
+    <label for="comment">Add a comment:</label>
+    <textarea class="form-control" id="comment" name="comment"></textarea>
+  </div>
+
+  <button  type="submit" class="btn btn-primary " data-id="{{id}}">Submit</button>
+  
+</form>
 </div>
         
       </div>
@@ -29,5 +39,5 @@
 
 <button type="submit" class="btn"><a class="link" href="/dashboard/newpost">+ New Post</a></button>
 
-
+<script src="./js/newComment.js"></script>
 <script src="/js/post.js"></script>
