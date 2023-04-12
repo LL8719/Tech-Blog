@@ -9,13 +9,14 @@
   <h2>Your Posts</h2>
   {{#each posts}}
 
-    
-
-        {{> post-details this}} <button><a href="/post/{{ id }}" class="btn btn-primary">Modify Post</a></button>
+    {{> post-details this}} 
         
-
+        <button><a href="/post/{{ id }}" class="btn modify-post-btn btn-primary">Modify Post</a></button>
+        
         
   {{/each}}
+
+ 
 </section>
 {{else}}
 <section>
@@ -23,7 +24,9 @@
 </section>
 {{/if}}
 
-<button type="submit" class="btn"><a class="link" href="/dashboard/newpost">+ New Post</a></button>
+<div class="text-center">
+<button type="submit" class="btn new-post-btn"><a class="link" href="/dashboard/newpost">+ New Post</a></button>
+</div>
 
 <script src="./js/newComment.js"></script>
 <script src="/js/post.js"></script>

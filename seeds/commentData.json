@@ -4,17 +4,6 @@
     "comment_text": "this is a test",
     "user_id": 3,
     "post_id": 1
-  },
-  {
-    "id": 2,
-    "comment_text": "this is a test 2",
-    "user_id": 2,
-    "post_id": 2
-  },
-  {
-    "id": 3,
-    "comment_text": "this is a test3",
-    "user_id": 3,
-    "post_id": 3
   }
+ 
 ]
